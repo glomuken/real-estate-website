@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ZAR Currency Formatting Test</title>
+</head>
+<body>
+    <h1>ZAR Currency Formatting Test</h1>
+    <p>Testing different price formats:</p>
+    
+    <script>
+        // Test our ZAR formatting
+        const testPrices = [1500000, 2500000, 500000, 10000000];
+        
+        testPrices.forEach(price => {
+            const formatted = new Intl.NumberFormat('en-ZA', {
+                style: 'currency',
+                currency: 'ZAR',
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0,
+            }).format(price);
+            
+            console.log(`Price: ${price} -> Formatted: ${formatted}`);
+            document.body.innerHTML += `<p>R${price.toLocaleString()} -> ${formatted}</p>`;
+        });
+    </script>
+</body>
+</html>
